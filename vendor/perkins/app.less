@@ -1,15 +1,28 @@
 @import "assets/_core";
+@import "assets/_table";
 @import "http://fonts.googleapis.com/css?family=Oxygen:400,300,700";
 
 /* Perkins External Bowties */
+
 @import "icons/_icons";
 
 /* Color Scheme */ 
+/*
 @corp: #DE864F;
 @base: #465558;
 @text: #d1dae0;
+*/
+@corp: #247E5D;
+@base: #353535;
+@text: #F6F6F6;
 @p-sans: "Oxygen", sans-serif;
 @p-link-color: @corp;
+
+@p-green: #227C5B;
+@p-red: #E6706A;
+@p-yellow: #DBA470;
+@p-blue: #5999A9;
+@p-purple: #6A5D8E;
 
 /* Basic Strcture */
 
@@ -36,7 +49,7 @@ aside#bar {
   position: absolute;
   top: 0;
   bottom: 0;
-  background: #3c4f55;
+  background: darken(@base, 5);
   .h-menu {
     width: 100%;
     background: darken(@corp, 3);
@@ -67,10 +80,10 @@ aside#bar {
   }
 }
 section#content {
-  padding: 20px 40px 20px 320px;
+  padding: 20px 80px 20px 320px;
 }
 nav#share {
-  background: #3f4d50;
+  background: darken(@base, 3);
   width: 60px;
   position: absolute;
   right: 0px;
@@ -115,5 +128,78 @@ nav#share {
     &:hover {
       background: rgba(0,0,0,0.20);
     }
+  }
+}
+.btn {
+  .button(@p-purple, rgba(0,0,0,0.50), 0 0 0 transparent, 1em, 0, normal);
+  .font-size(17);
+}
+
+/* Slider */
+.slider {
+  width: 300px;
+  float: left;
+  position: relative;
+  top: 4px;
+  left: 50px;
+}
+
+.slider > .dragger {
+  background: lighten(@corp, 10);
+  width: 24px;
+  height: 24px;
+}
+
+.slider > .track, .slider > .highlight-track {
+  background: rgba(0,0,0,0.20);
+  height: 24px;
+}
+
+.slider > .highlight-track {
+  background: fadeout(@p-white, 80);
+}
+
+/* Module I - Notable */
+.notable {
+  background: rgba(0,0,0,0.20);
+  ul {
+    li {
+      background: transparent;
+      padding: 20px 10px;
+      border-right: 1px solid rgba(0,0,0,0.20);
+      border-bottom: 1px solid rgba(0,0,0,0.20);
+      text-transform: none;
+      .font-size(18);
+      font-weight: bold;
+    }
+    li:last-child {
+      border-right: none;
+    }
+  }
+  dl {
+    background: transparent;
+    &:hover, &:focus {
+      background: @corp;
+    }
+  }
+  dd {
+    color: @p-white;
+    border-bottom: 1px solid rgba(0,0,0,0.20);
+    border-right: 1px solid rgba(0,0,0,0.20);
+  }
+  dd:last-child {
+    border-right: none;
+  }
+  .actions {
+    padding: 0;
+    background: darken(@base, 5);
+    .btn {
+      margin: 0 -3px 0 0;
+    }
+  }
+  .output {
+    float: left;
+    margin: 0 0 0 20px;
+    position: absolute;
   }
 }
